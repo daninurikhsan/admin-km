@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('scholarships', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('organizer');
+            $table->string('description');
+            $table->tinyInteger('has_volunteer_program');
+            $table->date('registration_end_date');
+            $table->string('url');
             $table->timestamps();
         });
     }
