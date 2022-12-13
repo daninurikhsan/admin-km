@@ -9,7 +9,8 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Dashboard</li>
                 <li class="breadcrumb-item">News</li>
-                <li class="breadcrumb-item active">Add News</li>
+                <li class="breadcrumb-item">Edit News</li>
+                <li class="breadcrumb-item active">{{ $news->title }}</li>
             </ol>
             </nav>
         </div>
