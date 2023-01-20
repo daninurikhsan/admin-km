@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('functionaries', function (Blueprint $table) {
             $table->id();
-            $table->string('nim');
+            $table->string('nim')->unique();
             $table->string('name');
             $table->string('study_program');
             $table->string('generation');

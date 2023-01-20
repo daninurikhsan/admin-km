@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('abbreviation');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->string('description');
             $table->string('card_url')->nullable();
             $table->timestamps();

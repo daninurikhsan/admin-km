@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cabinet;
 use App\Models\Functionary;
+use App\Models\Sectoral;
 use DB;
 
 class CabinetController extends Controller
@@ -120,7 +121,16 @@ class CabinetController extends Controller
      */
     public function show($id)
     {
-        //
+        $cabinet = Cabinet::findOrFail($id);
+        $sectorals = Sectoral::where('cabinet_id', $cabinet->id)->get();
+        $title = $cabinet->name;
+
+        return view('cabinets.detail',[
+            'title' => $title,
+            'cabinet' => $cabinet,
+            'sectorals' => $sectorals,
+        ]);
+
     }
 
     /**

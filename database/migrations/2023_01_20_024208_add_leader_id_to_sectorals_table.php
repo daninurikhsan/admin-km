@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('sectorals', function (Blueprint $table) {
-            $table->unsignedBigInteger('cabinet_id')->after('card_url');
-            $table->foreign('cabinet_id')->references('id')->on('cabinets')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('functionary_id')->after('cabinet_id')->nullable();
+
+            $table->foreign('functionary_id')->references('id')->on('functionaries')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

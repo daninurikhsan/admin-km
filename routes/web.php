@@ -21,4 +21,5 @@ Route::resource('/news', App\Http\Controllers\NewsController::class);
 Route::resource('/event', App\Http\Controllers\EventController::class);
 Route::resource('/scholarship', App\Http\Controllers\ScholarshipController::class);
 Route::resource('/cabinet', App\Http\Controllers\CabinetController::class);
+Route::resource('/cabinet/{cabinet:id}/sectoral', App\Http\Controllers\SectoralController::class);
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
