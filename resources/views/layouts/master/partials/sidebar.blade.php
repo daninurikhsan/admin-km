@@ -10,23 +10,49 @@
 
       <li class="nav-item">
         <a class="nav-link {{ (request()->is('news')) ? '' : 'collapsed' }}" href="/news">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-newspaper"></i>
           <span>News</span>
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link {{ (request()->is('event')) ? '' : 'collapsed' }}" href="/event">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-calendar-week"></i>
           <span>Events</span>
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link {{ (request()->is('scholarship')) ? '' : 'collapsed' }}" href="/scholarship">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-box-seam"></i>
           <span>Scholarships</span>
         </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-folder"></i><span>Cabinets</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/cabinet">
+              <i class="bi bi-circle"></i><span>View All</span>
+            </a>
+          </li>
+
+          @php 
+            use App\Models\Cabinet;
+            $cabinets = Cabinet::orderBy('id', 'desc')->get();
+          @endphp
+
+          @foreach($cabinets as $cabinet)
+            <li>
+              <a href="/cabinet/{{ $cabinet->id }}">
+                <i class="bi bi-circle"></i><span>{{ $cabinet->name }}</span>
+              </a>
+            </li>
+          @endforeach
+        </ul>
       </li>
 
     </ul>

@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('envent_schedules', function (Blueprint $table) {
-            $table->id();
+        Schema::create('event_functionary', function (Blueprint $table) {
             $table->unsignedBigInteger('event_id');
-            $table->dateTime('datetime');
-            $table->string('activity_title');
-            $table->string('activity_description');
-            $table->string('presenter')->nullable();
-            $table->string('presenter_avatar')->nullable();
+            $table->unsignedBigInteger('functionary_id');
             $table->timestamps();
 
+            $table->foreign('functionary_id')->references('id')->on('functionaries')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade')->onUpdate('cascade');
         });
     }
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('envent_schedules');
+        Schema::dropIfExists('event_functionary');
     }
 };

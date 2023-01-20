@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('envent_benefits', function (Blueprint $table) {
+        Schema::create('sectorals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('event_id');
             $table->string('title');
-            $table->string('icon');
+            $table->string('abbreviation');
+            $table->string('logo');
+            $table->string('description');
+            $table->string('card_url')->nullable();
             $table->timestamps();
-
-            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('envent_benefits');
+        Schema::dropIfExists('sectorals');
     }
 };
