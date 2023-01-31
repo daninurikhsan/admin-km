@@ -44,7 +44,7 @@
                             </td>
                             <td class="text-center">
                                 <a href="/event/{{ $event->id }}/edit" class="btn btn-sm btn-warning pd-2 mb-2"><i class="bi bi-pen me-1"></i> Edit</a>
-                                <form action="/event/{{ $event->id }}" method="post" onSubmit="return alert('Are you sure want to delete this {{ $event->title }}?'); return false;">
+                                <form action="/event/{{ $event->id }}" method="post" onSubmit="return confirm('Are you sure want to delete this {{ $event->title }}?'); return false;">
                                     @csrf 
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger pt-1"><i class="bi bi-trash me-1"></i> Delete</button>

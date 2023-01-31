@@ -9,4 +9,5 @@ class Functionary extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
 }

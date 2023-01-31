@@ -30,12 +30,12 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{ (request()->is('cabinet/*'))  ? '' : 'collapsed' }}" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#" aria-exapanded="">
           <i class="bi bi-folder"></i><span>Cabinets</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="charts-nav" class="nav-content collapse {{ (request()->is('cabinet/*'))  ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/cabinet">
+            <a href="/cabinet" class="">
               <i class="bi bi-circle"></i><span>View All</span>
             </a>
           </li>
@@ -47,7 +47,7 @@
 
           @foreach($cabinets as $cabinet)
             <li>
-              <a href="/cabinet/{{ $cabinet->id }}">
+              <a href="/cabinet/{{ $cabinet->id }}" class="{{ (request()->is('cabinet/$cabinet->id')) ? 'active' : '' }}">
                 <i class="bi bi-circle"></i><span>{{ $cabinet->name }}</span>
               </a>
             </li>

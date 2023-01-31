@@ -43,7 +43,7 @@
                             <td class="text-center">{{ DateTime::createFromFormat('Y-m-d', $scholarship->registration_end_date)->format('d F Y') }}</td>
                             <td class="text-center">
                                 <a href="/scholarship/{{ $scholarship->id }}/edit" class="btn btn-sm btn-warning pd-2 mb-2"><i class="bi bi-pen me-1"></i> Edit</a>
-                                <form action="/scholarship/{{ $scholarship->id }}" method="post" onSubmit="return alert('Are you sure want to delete this {{ $scholarship->name }}?'); return false;">
+                                <form action="/scholarship/{{ $scholarship->id }}" method="post" onSubmit="return confirm('Are you sure want to delete this {{ $scholarship->name }}?'); return false;">
                                     @csrf 
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger pt-1"><i class="bi bi-trash me-1"></i> Delete</button>

@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+@php 
+use App\Models\Functionary;
+
+$president = Functionary::find($cabinet->functionary_id);
+@endphp
 <div class="row">
     <div class="col-6">
         <div class="pagetitle">
@@ -91,7 +97,7 @@
                 <div class="row mb-3">
                     <label for="president_nim" class="col-sm-2 col-form-label">NIM</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('president_nim') is-invalid @enderror" name="president_nim" id="president_nim" value="{{ old('president_nim', $cabinet->president->nim) }}">
+                        <input type="text" class="form-control @error('president_nim') is-invalid @enderror" name="president_nim" id="president_nim" value="{{ old('president_nim', $president->nim) }}">
                         @error('president_nim')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -102,7 +108,7 @@
                 <div class="row mb-3">
                     <label for="president_name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('president_name') is-invalid @enderror" name="president_name" id="president_name" value="{{ old('president_name', $cabinet->president->name) }}">
+                        <input type="text" class="form-control @error('president_name') is-invalid @enderror" name="president_name" id="president_name" value="{{ old('president_name', $president->name) }}">
                         @error('name')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -113,7 +119,7 @@
                 <div class="row mb-3">
                     <label for="president_study_program" class="col-sm-2 col-form-label">Study Program</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('president_study_program') is-invalid @enderror" name="president_study_program" id="president_study_program" value="{{ old('president_study_program', $cabinet->president->study_program) }}">
+                        <input type="text" class="form-control @error('president_study_program') is-invalid @enderror" name="president_study_program" id="president_study_program" value="{{ old('president_study_program', $president->study_program) }}">
                         @error('president_study_program')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -124,7 +130,7 @@
                 <div class="row mb-3">
                     <label for="president_generation" class="col-sm-2 col-form-label">Generation</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('president_generation') is-invalid @enderror" name="president_generation" id="president_generation" value="{{ old('president_generation', $cabinet->president->generation) }}">
+                        <input type="text" class="form-control @error('president_generation') is-invalid @enderror" name="president_generation" id="president_generation" value="{{ old('president_generation', $president->generation) }}">
                         @error('president_generation')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

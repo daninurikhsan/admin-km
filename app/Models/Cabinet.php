@@ -10,7 +10,7 @@ class Cabinet extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function president(){
-        return $this->hasOne(Functionary::class, 'id');
+    public function functionary(){
+        return $this->belongsTo(Functionary::class, 'id');
     }
 }

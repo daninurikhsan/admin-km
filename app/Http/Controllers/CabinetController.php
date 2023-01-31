@@ -89,6 +89,7 @@ class CabinetController extends Controller
                 'name' => $request->president_name,
                 'study_program' => $request->president_study_program,
                 'generation' => $request->president_generation,
+                'role' => 'Presiden Mahasiswa'
             ]);
 
             if($request->hasFile('president_avatar')){

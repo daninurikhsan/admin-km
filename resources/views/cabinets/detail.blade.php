@@ -41,6 +41,7 @@
                             <td class="text-center">{{ $sectoral->title }} <br> ({{ $sectoral->abbreviation }})</td>
                             <td class="text-center">{{ $sectoral->functionary_id == null ? '-' : $sectoral->leader->name }}</td>
                             <td class="text-center">
+                                <a href="/cabinet/{{ $cabinet->id }}/sectoral/{{ $sectoral->id }}/functionaries" class="btn btn-sm btn-secondary pd-2 mb-2"><i class="bi bi-person me-1"></i> Functionaris</a>
                                 <a href="/cabinet/{{ $cabinet->id }}/sectoral/{{ $sectoral->id }}/edit" class="btn btn-sm btn-warning pd-2 mb-2"><i class="bi bi-pen me-1"></i> Edit</a>
                                 <form action="/cabinet/{{ $cabinet->id }}/sectoral/{{ $sectoral->id }}" method="post" onSubmit="return alert('Are you sure want to delete this {{ $sectoral->title }}?'); return false;">
                                     @csrf 
